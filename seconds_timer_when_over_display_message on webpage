@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>10 Second Timer</title>
+  <title>10 Second Countdown</title>
 </head>
 <body>
 
-<h1 id="message">Timer started...</h1>
+<h1 id="timer">10</h1>
 
 <script>
-setTimeout(function() {
-  document.getElementById("message").textContent = "Time's up";
-}, 10000); // 10 seconds
+let timeLeft = 10;
+const timerElement = document.getElementById("timer");
+
+const countdown = setInterval(function () {
+  timeLeft--;
+  timerElement.textContent = "Time left: " + timeLeft;
+
+  if (timeLeft <= 0) {
+    clearInterval(countdown);
+    timerElement.textContent = "Time's up";
+  }
+}, 1000);
 </script>
 
 </body>
