@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>True / False Counter</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  font-size: 20px;
+  padding: 15px 40px;
+  margin: 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.false-btn {
+  background-color: green;
+}
+
+.true-btn {
+  background-color: blue;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Press a Button</h2>
+
+<button class="false-btn" onclick="falsePressed()">False</button>
+<button class="true-btn" onclick="truePressed()">True</button>
+
+<p>False pressed: <span id="falseCount">0</span></p>
+<p>True pressed: <span id="trueCount">0</span></p>
+
+<script>
+let falseCount = 0;
+let trueCount = 0;
+
+function falsePressed() {
+  falseCount++;
+  document.getElementById("falseCount").textContent = falseCount;
+}
+
+function truePressed() {
+  trueCount++;
+  document.getElementById("trueCount").textContent = trueCount;
+}
+</script>
+
+</body>
+</html>
