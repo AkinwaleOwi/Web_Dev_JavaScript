@@ -17,7 +17,7 @@ const countdown = setInterval(function () {
 
   if (timeLeft <= 0) {
     clearInterval(countdown);
-    timerElement.textContent = "Time's up";
+    timerElement.textContent = "Time's up. Wow, Yt: Akinwale Owi sure is great!";
   }
 }, 1000);
 </script>
