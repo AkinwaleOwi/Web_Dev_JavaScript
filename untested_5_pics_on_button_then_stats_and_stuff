@@ -1,0 +1,139 @@
+codes
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+html code that goes through five pictures from a folder on buttonclick. the button is green and says "next" on it. the picture number is placed on the top right of the webpage in green. and when it gets to the last picture and the user presses the next button make the web page display the total number of pictures, the time it took to get through them all, and a message saying "Gee willikers"
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Here is a complete HTML file that does everything you asked:
+
+🟢 Green Next button
+
+🖼️ Cycles through 5 pictures from a folder
+
+🔢 Picture number displayed top-right in green
+
+⏱️ Tracks time taken
+
+📊 After the last picture it shows:
+
+total number of pictures
+
+time taken
+
+message “Gee willikers”
+
+You just need a folder called images with:
+
+1.jpg
+2.jpg
+3.jpg
+4.jpg
+5.jpg
+
+HTML + JavaScript
+<!DOCTYPE html>
+<html>
+<head>
+<title>Picture Viewer</title>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+}
+
+#counter {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#nextBtn {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+img {
+  max-width: 500px;
+  margin-top: 50px;
+}
+</style>
+
+</head>
+<body>
+
+<div id="counter">1 / 5</div>
+
+<img id="photo" src="images/1.jpg">
+
+<br>
+<button id="nextBtn" onclick="nextImage()">Next</button>
+
+<div id="results"></div>
+
+<script>
+
+const totalImages = 5;
+let currentImage = 1;
+let startTime = Date.now();
+
+function nextImage() {
+
+  if (currentImage < totalImages) {
+    currentImage++;
+
+    document.getElementById("photo").src = "images/" + currentImage + ".jpg";
+    document.getElementById("counter").textContent = currentImage + " / " + totalImages;
+
+  } else {
+
+    const endTime = Date.now();
+    const seconds = ((endTime - startTime) / 1000).toFixed(2);
+
+    document.getElementById("photo").style.display = "none";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("counter").style.display = "none";
+
+    document.getElementById("results").innerHTML =
+      "<h2>Total Pictures: " + totalImages + "</h2>" +
+      "<h2>Time Taken: " + seconds + " seconds</h2>" +
+      "<h1>Gee willikers</h1>";
+  }
+
+}
+
+</script>
+
+</body>
+</html>
+
+Folder structure
+project-folder
+│
+├── index.html
+└── images
+    ├── 1.jpg
+    ├── 2.jpg
+    ├── 3.jpg
+    ├── 4.jpg
+    └── 5.jpg
+
+What happens
+
+First image loads
+
+User presses Next
+
+Images cycle 1 → 5
+
+When pressing Next on image 5, the page shows:
+
+Total Pictures: 5
+Time Taken: X seconds
+Gee willikers
